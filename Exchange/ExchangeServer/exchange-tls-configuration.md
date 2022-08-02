@@ -329,15 +329,13 @@ We recommend explicitly disabling the following hashes which are outdated and sh
 
 ### Configure cipher suites on Windows Server 2016
 
-Setting cipher suites on functions property is not supported on Windows 10, Windows Server 2016 or higher and can cause failures. You must remove the functions property if it exists.
-
-Please use the following PowerShell command to check and remove the functions property if it exists:
+It is possible to configure the cipher suites by the help of a Group Policy Object (GPO). We can't configure them manually via ``Enable/Disable-TLSCipherSuite`` cmdlet if they are configured by the help of an GPO. You can use the following PowerShell command to check if any cipher suites are configured via GPO:
 
 ```powershell
 $cipherSuiteKeyPath = "HKLM:\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002"  
-if ((Get-ItemProperty $cipherSuiteKeyPath).Functions)
+if (((Get-ItemProperty $cipherSuiteKeyPath).Functions).Count -ge 1)
 {
-	Remove-ItemProperty -Path $cipherSuiteKeyPath -Name Functions
+	Write-Host "Cipher suites are configured by Group Policy (GPO)"
 }
 ```
 
