@@ -329,13 +329,14 @@ We recommend explicitly disabling the following hashes which are outdated and sh
 
 ### Configure cipher suites on Windows Server 2016
 
-It is possible to configure the cipher suites by the help of a Group Policy Object (GPO). We can't configure them manually via ``Enable/Disable-TLSCipherSuite`` cmdlet if they are configured by the help of an GPO. You can use the following PowerShell command to check if any cipher suites are configured via GPO:
+It is possible to configure the cipher suites by the help of a Group Policy Object (GPO). We can't configure them manually via ``Enable/Disable-TLSCipherSuite`` cmdlet if they were already configured via GPO. You can use the following PowerShell command to check if any cipher suites are configured via GPO:
 
 ```powershell
 $cipherSuiteKeyPath = "HKLM:\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002"  
-if (((Get-ItemProperty $cipherSuiteKeyPath).Functions).Count -ge 1)
-{
-	Write-Host "Cipher suites are configured by Group Policy (GPO)"
+if (((Get-ItemProperty $cipherSuiteKeyPath).Functions).Count -ge 1) {
+	Write-Host "Cipher suites are configured by Group Policy" -Foregroundcolor Red
+} else {
+    Write-Host "No cipher suites are configured by Group Policy - you can continue with the next steps" -Foregroundcolor Green    
 }
 ```
 
@@ -344,18 +345,15 @@ Configuring TLS 1.2 cipher suites on Windows Server 2016, is a 2-step task. The 
 1. Right click PowerShell and select _Run as administrator_
 2. Copy and paste the following text into the elevated PowerShell window
     ```powershell
-    foreach ($suite in Get-TLSCipherSuite)
-    {
+    foreach ($suite in Get-TLSCipherSuite) {
         $suiteString += $suite.Name + ","
     }
 
     $suiteString = $suiteString.TrimEnd(',')
     $suiteArray = $suiteString.Split(',')
 
-    foreach ($suite in $suiteArray)
-    {
-        if ($null -ne $suite)
-        {
+    foreach ($suite in $suiteArray) {
+        if (-not([string]::IsNullOrWhiteSpace($suite))) {
             Disable-TlsCipherSuite -Name $suite
         }
     }
@@ -377,8 +375,7 @@ The second task is to only enable the TLS 1.2 cipher suites. This can be done vi
                     'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256')
 
     $suiteCount = 0
-    foreach ($suite in $cipherSuites)
-    {
+    foreach ($suite in $cipherSuites) {
         Enable-TlsCipherSuite -Name $suite -Position $suiteCount
         $suiteCount++
     }
