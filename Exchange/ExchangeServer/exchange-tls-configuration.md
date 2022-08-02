@@ -10,7 +10,7 @@ This documentation describes the required steps to properly configure TLS 1.2 on
 
 ## Prerequisites
 
-TLS 1.2 support was added with Cumulative Update (CU) 19 to Exchange Server 2013 and CU 8 to Exchange Server 2016. It is possible to disable TLS 1.0 and 1.1 on Exchange Server 2013 with CU 20 and later or Exchange Server 2016 with CU 9 and later. It is also required to have the latest version of .NET framework and associated patches [supported by your CU](/exchange/plan-and-deploy/supportability-matrix?view=exchserver-2016#exchange-2016&preserve-view=true) in place.
+TLS 1.2 support was added with Cumulative Update (CU) 19 to Exchange Server 2013 and CU 8 to Exchange Server 2016. It is possible to disable TLS 1.0 and 1.1 on Exchange Server 2013 with CU 20 and later or on Exchange Server 2016 with CU 9 and later. It is also required to have the latest version of .NET framework and associated patches [supported by your CU](/exchange/plan-and-deploy/supportability-matrix?view=exchserver-2016#exchange-2016&preserve-view=true) in place.
 
 Exchange Server cannot run without Windows Server therefore it is important to have the latest operating system updates installed to run a stable and secure TLS 1.2 implementation.
 
@@ -90,7 +90,7 @@ Message header data in Exchange Server 2016 provides the protocol negotiated and
 
 ### Mail Flow via SMTP Logging
 
-SMTP Logs in Exchange Server 2013 and Exchange Server 2016 will contain the encryption protocol and other encryption related information used during the exchange of email between two systems.
+SMTP logs in Exchange Server 2013 and Exchange Server 2016 will contain the encryption protocol and other encryption related information used during the exchange of email between two systems.
 
 When the server is the **SMTP receiving system**, the following strings exist in the log depending on the version of TLS used:
 
@@ -259,7 +259,7 @@ Similarly, if this [security update](https://support.microsoft.com/topic/ms10-04
 
 ### Configure ciphers
 
-We recommend explicitly disable the following ciphers which are outdated and should not be used anymore.
+We recommend explicitly disabling the following ciphers which are outdated and should not be used anymore.
 
 1. From Notepad.exe, create a text file named **DisableCiphers.reg**
 2. Copy and paste the following text into the file
@@ -293,7 +293,7 @@ We recommend explicitly disable the following ciphers which are outdated and sho
 
 ### Configure hashes
 
-We recommend explicitly disable the following hashes which are outdated and should not be used anymore.
+We recommend explicitly disabling the following hashes which are outdated and should not be used anymore.
 
 1. From Notepad.exe, create a text file named **DisableHashes.reg**
 2. Copy and paste the following text into the file
@@ -309,7 +309,7 @@ We recommend explicitly disable the following hashes which are outdated and shou
 
 ### Configure cipher suites on Windows Server 2016
 
-Setting cipher suites on functions property is not supported on Windows 10+ and can cause Get/Set-TLSCipherSuite failures. You must remove the functions property if it exists.
+Setting cipher suites on functions property is not supported on Windows 10, Windows Server 2016 or higher and can cause ``Get/Set-TLSCipherSuite`` failures. You must remove the functions property if it exists.
 
 Please use the following PowerShell command to check and remove the functions property if it exists:
 
@@ -321,9 +321,7 @@ if ((Get-ItemProperty $cipherSuiteKeyPath).Functions)
 }
 ```
 
-Configuring TLS 1.2 cipher suites on Windows Server 2016, is a 2-step task.
-
-The first task is to disable all existing cipher suites. This can be done via PowerShell:
+Configuring TLS 1.2 cipher suites on Windows Server 2016, is a 2-step task. The first task is to disable all existing cipher suites. This can be done via PowerShell:
 
 1. Right click PowerShell and select _Run as administrator_
 2. Copy and paste the following text into the elevated PowerShell window
@@ -338,7 +336,7 @@ The first task is to disable all existing cipher suites. This can be done via Po
 
     foreach ($suite in $suiteArray)
     {
-        if ($suite -ne $null)
+        if ($null -ne $suite)
         {
             Set-TLSCipherSuite $suite $false
         }
@@ -384,7 +382,7 @@ The second task is to only enable the TLS 1.2 cipher suites. This can be done vi
 
 ### Configure cipher curves (Windows Server 2016 only)
 
-On Windows Server 2016 it is required to configure the elliptic curve preference. This can be done via an elevated PowerShell:
+On Windows Server 2016 it is required to configure the elliptic curve preference. This can be done with an elevated PowerShell:
 
 1. Right click PowerShell and select _Run as administrator_
 2. Copy and paste the following commands to the elevated PowerShell and execute them one by one
