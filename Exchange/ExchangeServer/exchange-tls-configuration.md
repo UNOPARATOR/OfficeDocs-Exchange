@@ -329,7 +329,7 @@ We recommend explicitly disabling the following hashes which are outdated and sh
 
 ### Configure cipher suites on Windows Server 2016
 
-Setting cipher suites on functions property is not supported on Windows 10, Windows Server 2016 or higher and can cause ``Get/Set-TLSCipherSuite`` failures. You must remove the functions property if it exists.
+Setting cipher suites on functions property is not supported on Windows 10, Windows Server 2016 or higher and can cause failures. You must remove the functions property if it exists.
 
 Please use the following PowerShell command to check and remove the functions property if it exists:
 
@@ -358,7 +358,7 @@ Configuring TLS 1.2 cipher suites on Windows Server 2016, is a 2-step task. The 
     {
         if ($null -ne $suite)
         {
-            Set-TLSCipherSuite $suite $false
+            Disable-TlsCipherSuite -Name $suite
         }
     }
     ```
@@ -381,7 +381,7 @@ The second task is to only enable the TLS 1.2 cipher suites. This can be done vi
     $suiteCount = 0
     foreach ($suite in $cipherSuites)
     {
-        Set-TlsCipherSuite $suite $suiteCount $true
+        Enable-TlsCipherSuite -Name $suite -Position $suiteCount
         $suiteCount++
     }
     ```
