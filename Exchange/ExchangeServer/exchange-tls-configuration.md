@@ -345,14 +345,7 @@ Configuring TLS 1.2 cipher suites on Windows Server 2016, is a 2-step task. The 
 1. Right click PowerShell and select _Run as administrator_
 2. Copy and paste the following text into the elevated PowerShell window
     ```powershell
-    foreach ($suite in Get-TLSCipherSuite) {
-        $suiteString += $suite.Name + ","
-    }
-
-    $suiteString = $suiteString.TrimEnd(',')
-    $suiteArray = $suiteString.Split(',')
-
-    foreach ($suite in $suiteArray) {
+    foreach ($suite in (Get-TLSCipherSuite).Name) {
         if (-not([string]::IsNullOrWhiteSpace($suite))) {
             Disable-TlsCipherSuite -Name $suite -ErrorAction SilentlyContinue
         }
