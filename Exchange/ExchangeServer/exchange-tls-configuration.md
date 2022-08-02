@@ -329,7 +329,7 @@ We recommend explicitly disabling the following hashes which are outdated and sh
 
 ### Configure cipher suites on Windows Server 2016
 
-It is possible to configure the cipher suites by the help of a Group Policy Object (GPO). We can't configure them manually via ``Enable/Disable-TLSCipherSuite`` cmdlet if they were already configured via GPO. You can use the following PowerShell command to check if any cipher suites are configured via GPO:
+It is possible to configure the cipher suites with the help of a Group Policy Object (GPO). We can't configure them manually via ``Enable/Disable-TLSCipherSuite`` cmdlet if they were already configured via GPO. You can use the following PowerShell command to check if any cipher suites are configured via GPO:
 
 ```powershell
 $cipherSuiteKeyPath = "HKLM:\SOFTWARE\Policies\Microsoft\Cryptography\Configuration\SSL\00010002"  
@@ -373,7 +373,7 @@ The second task is to only enable the TLS 1.2 cipher suites. This can be done vi
         $suiteCount++
     }
     ```
-3. Press _Enter_ and wait until execution has finished
+3. Press _Enter_ and wait until the execution has finished
 4. Restart the machine for the changes to take effect
 
 ### Configure cipher suites on Windows Server 2012 and Windows Server 2012 R2
