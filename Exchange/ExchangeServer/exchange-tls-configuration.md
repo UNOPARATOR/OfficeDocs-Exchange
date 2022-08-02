@@ -378,9 +378,11 @@ The second task is to only enable the TLS 1.2 cipher suites. This can be done vi
                     'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384',
                     'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256')
 
-    foreach($suite in $cipherSuites)
+    $suiteCount = 0
+    foreach ($suite in $cipherSuites)
     {
         Set-TlsCipherSuite $suite $suiteCount $true
+        $suiteCount++
     }
     ```
 3. Press _Enter_ and wait until execution has finished
