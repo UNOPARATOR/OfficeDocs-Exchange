@@ -1,6 +1,6 @@
-﻿# Exchange Server TLS configuration
+﻿# Exchange Server 2013 & 2016 TLS configuration best practices
 
-This documentation describes the required steps to properly configure TLS 1.2 on Exchange Server 2013 or Exchange Server 2016 with TLS 1.2 cipher suites and hashing algorithms (Exchange Server 2016 only). It also describes how to properly configure TLS 1.0 and 1.1 or in case you want to turn them off, how to disable TLS 1.0 and 1.1 correctly.
+This documentation describes the required steps to properly configure TLS 1.2 on Exchange Server 2013 or Exchange Server 2016 with TLS 1.2 cipher suites and hashing algorithms (Exchange Server 2016 only). It also describes how to properly configure TLS 1.0 and 1.1 or in case you want to turn them off, how to disable TLS 1.0 and 1.1 correctly. Please read carefully as some of the steps described here can only be performed on specific operating systems (like Windows Server 2016) or specific Exchange Server versions.
 
 > [!NOTE]
 > The [Microsoft TLS 1.0 implementation](https://support.microsoft.com/topic/schannel-implementation-of-tls-1-0-in-windows-security-status-update-november-24-2015-69b482ff-072d-f8a8-1ba3-e921019a4d5f) has no known security vulnerabilities. But because of the potential for future protocol downgrade attacks and other TLS vulnerabilities, it is recommended to carefully plan and disable TLS 1.0 and 1.1. Failure to plan carefully may cause clients to lose connectivity.
@@ -10,7 +10,7 @@ This documentation describes the required steps to properly configure TLS 1.2 on
 
 ## Prerequisites
 
-TLS 1.2 support was added with Cumulative Update (CU) 19 to Exchange Server 2013 and CU 8 to Exchange Server 2016. It is possible to disable TLS 1.0 and 1.1 on Exchange Server 2013 with CU 20 and later or Exchange Server 2016 with CU 9 and later. It is also required to have the latest version of .NET framework and associated patches [supported by your CU](https://docs.microsoft.com/Exchange/plan-and-deploy/supportability-matrix?view=exchserver-2016#exchange-2016) in place.
+TLS 1.2 support was added with Cumulative Update (CU) 19 to Exchange Server 2013 and CU 8 to Exchange Server 2016. It is possible to disable TLS 1.0 and 1.1 on Exchange Server 2013 with CU 20 and later or Exchange Server 2016 with CU 9 and later. It is also required to have the latest version of .NET framework and associated patches [supported by your CU](/exchange/plan-and-deploy/supportability-matrix?view=exchserver-2016#exchange-2016) in place.
 
 Exchange Server cannot run without Windows Server therefore it is important to have the latest operating system updates installed to run a stable and secure TLS 1.2 implementation.
 
@@ -239,7 +239,7 @@ To disable **TLS 1.1** for both Server (inbound) and Client (outbound) connectio
 
 ### Configure client and server TLS renegotiation strict mode
 
-These settings are used to configure TLS renegotiation strict mode. This means that the server allows only those clients to which this security update is applied to set up and renegotiate TLS sessions. The server does not allow the clients to which this [security update](https://support.microsoft.com/topic/ms10-049-vulnerabilities-in-schannel-could-allow-remote-code-execution-d4258037-ad3a-c00c-250f-6c67a408bd7c) is not applied to set up the TLS session. In this case, the server terminates such requests from the clients.
+These settings are used to configure TLS renegotiation strict mode. This means that the server allows only those clients to which this [security update](https://support.microsoft.com/topic/ms10-049-vulnerabilities-in-schannel-could-allow-remote-code-execution-d4258037-ad3a-c00c-250f-6c67a408bd7c) is applied to set up and renegotiate TLS sessions. The server does not allow the clients to which this [security update](https://support.microsoft.com/topic/ms10-049-vulnerabilities-in-schannel-could-allow-remote-code-execution-d4258037-ad3a-c00c-250f-6c67a408bd7c) is not applied to set up the TLS session. In this case, the server terminates such requests from the clients.
 
 Similarly, if this [security update](https://support.microsoft.com/topic/ms10-049-vulnerabilities-in-schannel-could-allow-remote-code-execution-d4258037-ad3a-c00c-250f-6c67a408bd7c) is applied to the client, and the client is in strict mode, the client can set up and renegotiate TLS sessions with all the servers for which this security update is applied. The clients cannot set up TLS sessions at all with servers for which this security update is not applied. The client cannot move ahead with a TLS negotiation attempt with such servers.
 
