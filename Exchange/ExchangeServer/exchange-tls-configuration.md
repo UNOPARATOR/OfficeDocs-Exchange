@@ -51,7 +51,7 @@ Based on your operating system, please make sure that the following updates are 
 
 ### Enable TLS 1.2 for .NET 4.x
 
-The ``SystemDefaultTlsVersions`` registry value defines which security protocol version defaults will be used by .NET Framework 4.x. If the value is set to 1, then .NET Framework 4.x will inherit its defaults from the Windows Schannel ``DisabledByDefault`` registry values. If the value is undefined, it will behave as if the value is set to 0. By configuring .NET Framework 4.x to inherit its values from Schannel we gain the ability to use the latest versions of TLS supported by the OS, including TLS 1.2.
+The ``SystemDefaultTlsVersions`` registry value defines which security protocol version defaults will be used by .NET Framework 4.x. If the value is set to 1, then .NET Framework 4.x will inherit its defaults from the Windows Schannel ``DisabledByDefault`` registry values. If the value is undefined, it will behave as if the value is set to 0. The strong cryptography (configured by the ``SchUseStrongCrypto`` registry value) uses more secure network protocols (TLS 1.2, TLS 1.1, and TLS 1.0) and blocks protocols that are not secure. ``SchUseStrongCrypto`` affects only client (outgoing) connections in your application. By configuring .NET Framework 4.x to inherit its values from Schannel we gain the ability to use the latest versions of TLS supported by the OS, including TLS 1.2.
 
 1. From Notepad.exe, create a text file named **NET4X-UseSchannelDefaults.reg**
 2. Copy and paste the following text into the file
@@ -66,6 +66,26 @@ The ``SystemDefaultTlsVersions`` registry value defines which security protocol 
     ```
 3. Save **NET4X-UseSchannelDefaults.reg**
 4. Double-click the **NET4X-UseSchannelDefaults.reg** file
+5. Click _Yes_ to update your Windows Registry with these changes
+6. Restart the machine for the changes to take effect
+
+### Enable TLS 1.2 for .NET 3.5
+
+Exchange Server 2013 and later do not need this anymore. However, we recommend to configure it identically to the .NET 4.x setting to ensure a consistent configuration.
+
+1. From Notepad.exe, create a text file named **NET35-UseSchannelDefaults.reg**
+2. Copy and paste the following text into the file
+    ```notepad
+    Windows Registry Editor Version 5.00
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+    "SystemDefaultTlsVersions"=dword:00000001
+    "SchUseStrongCrypto"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727]
+    "SystemDefaultTlsVersions"=dword:00000001
+    "SchUseStrongCrypto"=dword:00000001
+    ```
+3. Save **NET35-UseSchannelDefaults.reg**
+4. Double-click the **NET35-UseSchannelDefaults.reg** file
 5. Click _Yes_ to update your Windows Registry with these changes
 6. Restart the machine for the changes to take effect
 
