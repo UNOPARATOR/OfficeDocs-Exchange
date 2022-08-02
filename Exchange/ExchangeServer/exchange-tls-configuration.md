@@ -10,7 +10,7 @@ This documentation describes the required steps to properly configure TLS 1.2 on
 
 ## Prerequisites
 
-TLS 1.2 support was added with Cumulative Update (CU) 19 to Exchange Server 2013 and CU 8 to Exchange Server 2016. It is possible to disable TLS 1.0 and 1.1 on Exchange Server 2013 with CU 20 and later or Exchange Server 2016 with CU 9 and later. It is also required to have the latest version of .NET framework and associated patches [supported by your CU](/exchange/plan-and-deploy/supportability-matrix?view=exchserver-2016#exchange-2016) in place.
+TLS 1.2 support was added with Cumulative Update (CU) 19 to Exchange Server 2013 and CU 8 to Exchange Server 2016. It is possible to disable TLS 1.0 and 1.1 on Exchange Server 2013 with CU 20 and later or Exchange Server 2016 with CU 9 and later. It is also required to have the latest version of .NET framework and associated patches [supported by your CU](/exchange/plan-and-deploy/supportability-matrix?view=exchserver-2016#exchange-2016&preserve-view=true) in place.
 
 Exchange Server cannot run without Windows Server therefore it is important to have the latest operating system updates installed to run a stable and secure TLS 1.2 implementation.
 
