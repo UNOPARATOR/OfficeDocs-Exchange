@@ -5,6 +5,8 @@ ms:assetid: 32550081-9af9-474b-ae7b-28f1e68cad41
 ms:mtpsurl: https://technet.microsoft.com/library/Dn602498(v=EXCHG.150)
 ms:contentKeyID: 61071880
 ms.reviewer: 
+ms.topic: article
+description: Unsearchable items in Microsoft Exchange eDiscovery
 manager: serdars
 ms.author: serdars
 author: msdmaguire
@@ -63,7 +65,7 @@ Keep the following in mind when copying or exporting unsearchable items:
 
 For more information about including unsearchable items in search results, see:
 
-- [Create an In-Place eDiscovery search](/exchange/security-and-compliance/in-place-ediscovery/create-in-place-ediscovery-search)
+- [Create an In-Place eDiscovery search](create-in-place-ediscovery-search-exchange-2013-help.md)
 
 - [Export eDiscovery search results to a PST file](../ExchangeOnline/security-and-compliance/in-place-ediscovery/export-search-results.md)
 

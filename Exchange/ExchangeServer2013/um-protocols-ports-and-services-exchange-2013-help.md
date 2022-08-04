@@ -4,7 +4,9 @@ TOCTitle: UM protocols, ports, and services
 ms:assetid: 5997ce29-1755-48bb-8ff4-b08da549482a
 ms:mtpsurl: https://technet.microsoft.com/library/Aa998265(v=EXCHG.150)
 ms:contentKeyID: 49315424
-ms.reviewer: 
+ms.reviewer:
+ms.topic: article
+description: Unified messaging protocols, ports, and services in Microsoft Exchange Server
 manager: serdars
 ms.author: serdars
 author: msdmaguire
@@ -17,7 +19,7 @@ mtps_version: v=EXCHG.150
 
 _**Applies to:** Exchange Server 2013, Exchange Server 2016_
 
-Microsoft Exchange 2013 Unified Messaging (UM) requires that several TCP and User Datagram Protocol (UDP) ports be used to establish communication between servers running Exchange 2013 and other devices. By allowing access through these IP ports, you enable Unified Messaging to function correctly. This topic discusses the TCP and UDP ports used in Exchange 2013 Unified Messaging.
+Microsoft Exchange 2013 Unified Messaging (UM) requires that several TCP and User Datagram Protocol (UDP) ports be used to establish communication between servers running Exchange 2013 and other devices. By allowing access through these IP ports, you enable Unified Messaging to function correctly. This topic discusses the TCP and UDP ports used in Exchange 2013 Unified Messaging.
 
 ## Unified Messaging protocols and services
 
@@ -27,20 +29,13 @@ Exchange 2013 Unified Messaging features and services rely on static and dynamic
 > On Exchange 2013 Client Access and Mailbox servers running UM components and services, Exchange setup creates inbound firewall rules that allow inbound communication without any TCP port restrictions. The following inbound rules for UM services are added:
 
 1. **SESWorker (GFW) (TCP-In)**
-
 2. **UMCallRouter (GFW) (TCP-In)**
-
 3. **UMCallRouter (TCP-In)**
-
 4. **UMService (GFW) (TCP-In)**
-
 5. **UMService (TCP-In)**
-
 6. **UMWorkerProcess - RPC (TCP-In)**
-
 7. **UMWorkerProcess (GFW) (TCP-In)**
-
-8. **UMWorkerProcess (TCP-In)**
+. **UMWorkerProcess (TCP-In)**
 
 ## Session Initiation Protocol
 
@@ -56,13 +51,12 @@ RTP doesn't require a standard or static TCP or UDP port to communicate with. RT
 
 ## Unified Messaging Web services
 
-The Unified Messaging Web services installed on Mailbox servers use IP for network communication between a client, the Mailbox server, and computers running other Exchange 2013 server roles. Several Exchange 2013 Outlook Web App and Outlook 2013 client features rely on Unified Messaging Web services to operate correctly.
+The Unified Messaging Web services installed on Mailbox servers use IP for network communication between a client, the Mailbox server, and computers running other Exchange 2013 server roles. Several Exchange 2013 Outlook Web App and Outlook 2013 client features rely on Unified Messaging Web services to operate correctly.
 
 The following Unified Messaging client features rely on Unified Messaging Web services:
 
-  - Voice mail options available with Exchange 2013 Outlook Web App, including the Play on Phone feature and the ability to reset a PIN.
-
-  - The Play on Phone feature found in an Outlook client.
+- Voice mail options available with Exchange 2013 Outlook Web App, including the Play on Phone feature and the ability to reset a PIN.
+- The Play on Phone feature found in an Outlook client.
 
 ## UM ports
 
@@ -72,48 +66,12 @@ The following table summarizes the Exchange 2013 ports and protocols, and whethe
 
 ### UM listening ports
 
-<table>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Protocol</th>
-<th>TCP port</th>
-<th>UDP port</th>
-<th>Can the ports be changed?</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>SIP (Client Access server - Microsoft Unified Messaging Call Router service)</p></td>
-<td><p>5060 (unsecured), 5061 (secured). The service listens on both ports.</p></td>
-<td><p>Not applicable</p></td>
-<td><p>Yes, using the <strong>Set-UMCallRouterSettings</strong> cmdlet.</p></td>
-</tr>
-<tr class="even">
-<td><p>SIP (Mailbox server - Microsoft Exchange Unified Messaging service)</p></td>
-<td><p>5062 (unsecured), 5063 (secured). The service listens on both ports.</p></td>
-<td><p>Not applicable</p></td>
-<td><p>Ports can't be changed.</p></td>
-</tr>
-<tr class="odd">
-<td><p>SIP (Mailbox server - UM worker process)</p></td>
-<td><p>5065 and 5067 for TCP (unsecured). 5065 and 5067 for mutual TLS (secured). If you have set it to Dual mode 5066 and 5068 are also used.</p></td>
-<td><p>Not applicable</p></td>
-<td><p>Ports can't be changed.</p></td>
-</tr>
-<tr class="even">
-<td><p>RTP (Mailbox server - UM worker process)</p></td>
-<td><p>Not applicable</p></td>
-<td><p>Ports between 1024 and 65535.</p></td>
-<td><p>Ports can be changed in the msexchangeum.config configuration file. The msexchangeum.config file is located in the \Program Files\Microsoft\Exchange\V15\bin folder on an Exchange 2013 Unified Messaging server.</p></td>
-</tr>
-</tbody>
-</table>
+|Protocol|TCP port|UDP port|Can the ports be changed?|
+|---|---|---|---|
+|SIP (Client Access server - Microsoft Unified Messaging Call Router service)|5060 (unsecured), 5061 (secured). The service listens on both ports.|Not applicable|Yes, using the **Set-UMCallRouterSettings** cmdlet.|
+|SIP (Mailbox server - Microsoft Exchange Unified Messaging service)|5062 (unsecured), 5063 (secured). The service listens on both ports.|Not applicable|Ports can't be changed.|
+|SIP (Mailbox server - UM worker process)|5065 and 5067 for TCP (unsecured). 5065 and 5067 for mutual TLS (secured). If you have set it to Dual mode 5066 and 5068 are also used.|Not applicable|Ports can't be changed.|
+|RTP (Mailbox server - UM worker process)|Not applicable|Ports between 1024 and 65535.|Ports can be changed in the msexchangeum.config configuration file. The msexchangeum.config file is located in the %ExchangeInstallPath%bin folder on an Exchange 2013 Unified Messaging server.|
 
 ## Lync Server and UM ports
 
@@ -123,6 +81,5 @@ The A/V Authentication service is used to allow RTP voice media to traverse NAT 
 
 For more information about how to deploy Communications Server 2007 R2 or Lync Server 2010 or 2013 and Exchange 2013 Unified Messaging, see the following:
 
-  - [Deploying Exchange 2013 UM and Lync Server overview](deploying-exchange-2013-um-and-lync-server-overview-exchange-2013-help.md)
-
-  - [Checklist: Integrate Exchange 2013 UM with Lync Server](checklist-integrate-exchange-2013-um-with-lync-server-exchange-2013-help.md)
+- [Deploying Exchange 2013 UM and Lync Server overview](deploying-exchange-2013-um-and-lync-server-overview-exchange-2013-help.md)
+- [Checklist: Integrate Exchange 2013 UM with Lync Server](checklist-integrate-exchange-2013-um-with-lync-server-exchange-2013-help.md)

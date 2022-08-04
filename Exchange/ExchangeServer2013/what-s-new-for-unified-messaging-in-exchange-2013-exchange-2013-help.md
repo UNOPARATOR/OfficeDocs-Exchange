@@ -5,12 +5,14 @@ ms:assetid: a444ef2d-d893-408e-adf9-c9d8a8b07593
 ms:mtpsurl: https://technet.microsoft.com/library/JJ150545(v=EXCHG.150)
 ms:contentKeyID: 47560068
 ms.reviewer: 
+ms.topic: article
 manager: serdars
 ms.author: serdars
 author: msdmaguire
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
+description: Learn about what's new in UM in Exchange 2013.
 ---
 
 # What's new for Unified Messaging in Exchange 2013
@@ -35,15 +37,11 @@ UCMA 4.0 supports new features in Unified Messaging, such as using the same vers
 
 In Exchange 2010 SP2 and SP1, UCMA 2.0 installation is required prior to installing the service pack on a Unified Messaging server. However, UCMA 2.0 had several limitations. UCMA 4.0 corrects many of the shortcomings. In Exchange Server 2013, UM continues to use UCMA. However, the move to the newest version of UCMA provides these benefits:
 
-  - The newest build of UCMA incorporates hotfixes and patches.
-
-  - UCMA requires .NET 4.0, which is the platform used by Exchange Server 2013. (UCMA 2.0 doesn't support .NET 4.0.)
-
-  - UCMA 4.0 supports IPv6.
-
-  - Simplified and automated deployment of UCMA 4.0. Exchange 2013 Setup performs a single check for UCMA 4.0.
-
-  - UCMA 4.0 setup includes all prerequisites for Exchange 2013.
+- The newest build of UCMA incorporates hotfixes and patches.
+- UCMA requires .NET 4.0, which is the platform used by Exchange Server 2013. (UCMA 2.0 doesn't support .NET 4.0.)
+- UCMA 4.0 supports IPv6.
+- Simplified and automated deployment of UCMA 4.0. Exchange 2013 Setup performs a single check for UCMA 4.0.
+- UCMA 4.0 setup includes all prerequisites for Exchange 2013.
 
 > [!NOTE]
 > UCMA 4.0 is installed when you're installing Exchange 2013. For details about UCMA 4.0 and setup requirements, see <A href="exchange-2013-prerequisites-exchange-2013-help.md">Exchange 2013 prerequisites</A>. To upgrade to the most recent version of UCMA, you must first uninstall any previous versions of UCMA that are installed using Add/Remove programs.
@@ -65,14 +63,12 @@ Caller ID look-up is integrated with contact aggregation, so that it searches ac
 Exchange Server 2013 UM introduces some enhancements to the speech platform and speech recognition, including the following:
 
 - Enhancements and improved accuracy for Voice Mail Preview.
-
 - Support for the [Microsoft Speech Platform - Runtime (Version 11.0)](https://www.microsoft.com/download/details.aspx?id=27225).
-
 - Speech grammar generation using the system mailbox for an organization.
 
 Exchange Unified Messaging uses static and dynamic speech grammars to recognize commands, names of contacts in the global address list, and names of personal contacts in the user's mailbox. Today, in Exchange Server 2013, every Mailbox server running the Microsoft Exchange Unified Messaging service generates grammars for all UM languages installed on it and stores them in directories. Every Mailbox server stores every possible grammar, which it generates based on the number of dial plans, auto attendants, and the UM languages that are installed.
 
-Grammar files are used as inputs to the speech recognition process and are generated on a periodic basis. The GGG.exe command in Exchange 2007 and Exchange 2010 allowed you to manually update the grammar files without waiting for the scheduled update. In Exchange Server 2013, to address ASR grammar-generation scalability issues for UM, the speech GAL grammar generation no longer happens on the server with the Unified Messaging server role installed. Instead, it happens periodically using the Mailbox Assistant, on the Mailbox server running the Microsoft Exchange Unified Messaging service that hosts the organization's arbitration mailbox. The GAL speech grammar file is stored in the arbitration mailbox for an organization and then later downloaded to all Mailbox servers in that Exchange organization. By default, the Mailbox Assistant runs every 24 hours. You can adjust the frequency by using the **Set-MailboxServer** cmdlet.
+Grammar files are used as inputs to the speech recognition process and are generated on a periodic basis. The GGG.exe command in Exchange 2007 and Exchange 2010 allowed you to manually update the grammar files without waiting for the scheduled update. In Exchange Server 2013, to address ASR grammar-generation scalability issues for UM, the speech GAL grammar generation no longer happens on the server with the Unified Messaging server role installed. Instead, it happens periodically using the Mailbox Assistant, on the Mailbox server running the Microsoft Exchange Unified Messaging service that hosts the organization's arbitration mailbox. The GAL speech grammar file is stored in the arbitration mailbox for an organization and then later downloaded to all Mailbox servers in that Exchange organization. By default, the Mailbox Assistant runs every 24 hours. You can adjust the frequency by using the **Set-MailboxServer** cmdlet.
 
 ## Cmdlet updates
 

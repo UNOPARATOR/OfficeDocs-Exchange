@@ -1,6 +1,8 @@
 ---
 title: 'Unified Messaging: Exchange 2013 Help'
 TOCTitle: Unified Messaging
+ms.topic: article
+description:  Learn about the features, including new features, of Unified Messaging (UM) in Exchange Server 2013.
 ms:assetid: 004b5d1a-cae8-4034-ab65-db41bd2f7b97
 ms:mtpsurl: https://technet.microsoft.com/library/JJ150478(v=EXCHG.150)
 ms:contentKeyID: 47559933
@@ -25,16 +27,13 @@ Unified Messaging makes it possible for Exchange administrators to combine voice
 
 ## New features
 
-Unified Messaging (UM) was first introduced in Microsoft Exchange Server 2007 and was also available in Exchange 2010. The Unified Messaging feature set in Exchange 2013 is similar to previous versions of Exchange. However, new features have been added and there have been architectural changes. Unified Messaging is now considered a component or sub feature of the voice-related features that are offered in Exchange 2013. The term *Unified Messaging* is still widely used in Exchange Management Shell cmdlets and UM-related services, and all Unified Messaging components (including dial plans, auto attendants, UM mailbox policies, and UM IP gateways) along with the ability to manage those UM components, are located within the Unified Messaging node in the navigation pane of the Exchange admin center (EAC).
+Unified Messaging (UM) was first introduced in Microsoft Exchange Server 2007 and was also available in Exchange 2010. The Unified Messaging feature set in Exchange 2013 is similar to previous versions of Exchange. However, new features have been added and there have been architectural changes. Unified Messaging is now considered a component or sub feature of the voice-related features that are offered in Exchange 2013. The term _Unified Messaging_ is still widely used in Exchange Management Shell cmdlets and UM-related services, and all Unified Messaging components (including dial plans, auto attendants, UM mailbox policies, and UM IP gateways) along with the ability to manage those UM components, are located within the Unified Messaging node in the navigation pane of the Exchange admin center (EAC).
 
 The following topics are gateways to information about new or enhanced features found in Exchange 2013 Unified Messaging:
 
 - [Voice architecture changes](voice-architecture-changes-exchange-2013-help.md)
-
 - [IPv6 support in Unified Messaging](ipv6-support-in-unified-messaging-exchange-2013-help.md)
-
 - [Voice mail preview enhancements](voice-mail-preview-enhancements-exchange-2013-help.md)
-
 - [Unified Messaging cmdlet updates](unified-messaging-cmdlet-updates-exchange-2013-help.md)
 
 ## Unified Messaging features
@@ -43,9 +42,9 @@ The voice mail features found in Unified Messaging offer benefits for both end u
 
 ## Features for end users
 
-When you deploy Unified Messaging, users can access voice mail, email, and calendar information that's located in their mailbox from an email client, for example, Outlook or Microsoft Outlook Web App, from a mobile phone with Microsoft Exchange ActiveSync set up, or from a telephone. Additionally, users can use the following features:
+When you deploy Unified Messaging, users can access voice mail, email, and calendar information that's located in their mailbox from an email client, for example, Outlook or Microsoft Outlook Web App, from a mobile phone with Microsoft Exchange ActiveSync set up, or from a telephone. Additionally, users can use the following features:
 
-- **Access to Exchange information**: UM-enabled users can access a full set of voice mail features from Internet-capable mobile phones, Microsoft Office Outlook 2007 or later versions, and Outlook Web App. These features include many voice mail configuration options and the ability to play a voice message from either the Reading Pane, using an integrated Windows Media Player, or the message list, using computer speakers.
+- **Access to Exchange information**: UM-enabled users can access a full set of voice mail features from Internet-capable mobile phones, Microsoft Office Outlook 2007 or later versions, and Outlook Web App. These features include many voice mail configuration options and the ability to play a voice message from either the Reading Pane, using an integrated Windows Media Player, or the message list, using computer speakers.
 
 - **Play on Phone**: The Play on Phone feature lets UM-enabled users play voice messages over a telephone. If the user works in an office cubicle, is using a public computer or a computer that isn't enabled for multimedia, or is listening to a voice message that's confidential, they might not want to or be able to listen to a voice message through computer speakers. They can play the voice message using any telephone, including a home, office, or mobile telephone.
 
@@ -60,13 +59,9 @@ When you deploy Unified Messaging, users can access voice mail, email, and calen
 - **Call Answering Rules**: Call Answering Rules lets users who are enabled for voice mail determine how their incoming call answering calls should be handled. The way call answering rules are applied to incoming calls is similar to the way Inbox rules are applied to incoming email messages. By default, no call answering rules are configured. If an incoming call is answered by the Mailbox server, the caller is prompted to leave a voice message for the called party. Using call answering rules, a caller can:
 
   - Leave a voice message for the UM-enabled user.
-
   - Transfer to an alternate contact of the UM-enabled user.
-
   - Transfer to the alternate contact's voice mail.
-
   - Transfer to other phone numbers that the UM-enabled user has configured.
-
   - Use the Find Me feature or locate the UM-enabled user via a transfer from an operator.
 
 - **Voice Mail Preview**: The Mailbox server uses Automatic Speech Recognition (ASR) on newly created voice mail messages. When users receive voice messages, the messages contain both a recording and text that's been created from the voice recording. Users see the voice message text displayed in an email message from within Outlook Web App or another supported email client.
@@ -80,17 +75,11 @@ When you deploy Unified Messaging, users can access voice mail, email, and calen
 - **Outlook Voice Access**: There are two Unified Messaging user interfaces available to UM-enabled users: the telephone user interface (TUI) and the voice user interface (VUI). These two interfaces together are called Outlook Voice Access. Outlook Voice Access users can use Outlook Voice Access when they access the voice mail system from an external or internal telephone. UM-enabled users who dial in to the voice mail system can access their mailbox using Outlook Voice Access. Using a telephone, a UM-enabled user can:
 
   - Access voice mail
-
   - Listen to, forward, or reply to email messages
-
   - Listen to calendar information
-
   - Access or dial contacts who are stored in the organization's directory or a single contact or contact group located in their personal Contacts.
-
   - Accept or cancel meeting requests
-
   - Set a voice message to let callers know the called party is away
-
   - Set user security preferences and personal options
 
 - **Group addressing using Outlook Voice Access**: In Exchange 2007, users could use either the telephone user interface (TUI) or voice user interface (VUI) in Outlook Voice Access to send email and voice messages when they signed in to their mailbox. However, users could only send a single email message to a single user in their personal Contacts, to multiple recipients from the directory by adding each recipient individually, or by adding the name of a distribution list from the directory for your organization. In Exchange 2013, when a user signs in to their mailbox using Outlook Voice Access, they can also send email and voice messages to users in a group stored in their personal Contacts.
@@ -102,47 +91,37 @@ Currently, most users and IT departments manage their voice mail separately from
 Exchange administrators can manage Unified Messaging using the same interface they use to manage the rest of Exchange, using the Exchange admin center (EAC) and the Exchange Management Shell. They can:
 
 - Manage voice mail and email from a single platform
-
 - Manage Unified Messaging using scriptable commands
-
 - Build highly available and reliable Unified Messaging infrastructures
 
 Exchange 2013 Unified Messaging offers administrators:
 
 - **A complete voice mail system**: Unified Messaging offers a complete voice mail solution using a single store, transport, and directory infrastructure. The store is provided by a Mailbox server and forwarding of incoming calls from a VoIP gateway or IP PBX is handled by a Client Access server. All email and voice mail messages can be managed from a single management point, using a single administration interface and tool set.
 
-- **An Exchange security model**: The Microsoft Exchange Unified Messaging service on a Mailbox server and the Microsoft Exchange Unified Messaging Call Router service on a Client Access server run as a single Exchange server account.
+- **An Exchange security model**: The Microsoft Exchange Unified Messaging service on a Mailbox server and the Microsoft Exchange Unified Messaging Call Router service on a Client Access server run as a single Exchange server account.
 
 - **Consolidation of voice mail systems**: Currently, most voice messaging systems require that all the voice messaging components be installed in every physical office location in an organization. In this kind of arrangement, the voice messaging systems in branch offices are located outside the central office and must be administered onsite. This frequently results in increased administration costs and complexity. Unified Messaging lets you manage your voice mail system from a central location. To create a centralized management system for Unified Messaging, you can place some of your Exchange servers in a datacenter or other location, and the remainder of your Exchange servers on-premises and then deploy VoIP gateways, IP PBXs, or Session Border Controllers (SBCs) in each of your branch offices to replace the voice messaging system for each branch office. Deploying a centralized voice messaging system this way can result in a significant savings in hardware and administrative costs.
 
 - **Built-in Unified Messaging administrative roles**: The set of UM-specific administrative roles for managing Unified Messaging and voice mail features includes the following:
 
   - UM Mailboxes
-
   - UM Prompts
-
   - Unified Messaging
 
 - **Incoming fax support**: Exchange 2013 provides built-in incoming fax support for users who have a UM-enabled mailbox. They can receive fax messages via calls placed to their extension number.
 
     Customers who require a fax solution will have to deploy a fax partner solution. Fax partner solutions are available from several fax partners. The fax partner solutions are designed to be tightly integrated with Exchange and enable UM-enabled users to receive incoming fax messages.
 
-- **Support for multiple languages**:    All available language packs contain the Text-to-Speech (TTS) engine and the prerecorded prompts for a specified language and ASR support. However, only some language packs contain support for Voice Mail Preview. The US English (en-US) language pack is included on the installation media and additional UM language packs can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=35368).
+- **Support for multiple languages**:    All available language packs contain the Text-to-Speech (TTS) engine and the prerecorded prompts for a specified language and ASR support. However, only some language packs contain support for Voice Mail Preview. The US English (en-US) language pack is included on the installation media and additional UM language packs can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=35368).
 
 - **Auto attendant**: An auto attendant is a set of voice prompts that gives external and internal users access to the voice mail system. Users can use the telephone keypad or speech inputs to move through the auto attendant menu, place a call to a user, or locate a user in your organization and then place a call to them. An auto attendant gives the administrator the ability to:
 
   - Create a customized menu for external users.
-
   - Define informational greetings, business hours greetings, and non-business hours greetings.
-
   - Define holiday schedules.
-
   - Describe how to search the organization's directory.
-
   - Describe how to connect to a user's extension so that external callers can call users by specifying their extension.
-
   - Describe how to search the organization's directory so that external callers can search the organization's directory and call a specific user.
-
   - Enable external users to call the operator.
 
 ## Planning and deploying UM
@@ -154,25 +133,15 @@ When you plan your Unified Messaging deployment, you must consider design and ot
 There are many areas that you must consider and evaluate to be able to successfully deploy Unified Messaging. You must understand the different aspects of Unified Messaging and each component and feature so that you can plan your Unified Messaging infrastructure and deployment appropriately. Allocating time to plan and work through these issues will help prevent problems when you deploy Unified Messaging in your organization.The following are some of the areas that you should consider and evaluate when planning for Unified Messaging in your organization:
 
 - The needs of your organization.
-
 - The security requirements in your organization.
-
 - Your existing telephony, circuit-switched network, and your current voice mail system.
-
 - Your current packet-switched IP network design. This includes your local area network (LAN) and WAN connectivity points and devices.
-
 - Your current Active Directory environment.
-
 - The number of users that you'll have to support.
-
 - The number of Client Access and Mailbox servers you'll need.
-
 - Whether you'll be integrating UM with Microsoft Lync Server to enable Enterprise Voice.
-
 - The placement of VoIP gateways, telephony equipment, and Client Access and Mailbox servers.
-
 - The type of UM deployment: on-premises or hybrid.
-
 - The storage requirements for voice mail users.
 
 ## Managing UM with the EAC and the Shell
@@ -203,65 +172,17 @@ The Exchange Management Shell, built on Windows PowerShell technology, is a powe
 
 The following table contains links to topics that will help you learn about and manage Exchange Unified Messaging.
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Topic</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p><a href="new-voice-mail-features-exchange-2013-help.md">New voice mail features</a></p></td>
-<td><p>Learn about new features in Microsoft Exchange 2013.</p></td>
-</tr>
-<tr class="even">
-<td><p><a href="planning-for-unified-messaging-exchange-2013-help.md">Planning for Unified Messaging</a></p></td>
-<td><p>Learn about the concepts and information you need to plan a Unified Messaging deployment.</p></td>
-</tr>
-<tr class="odd">
-<td><p><a href="deploying-voice-mail-and-um-exchange-2013-help.md">Deploying voice mail and UM</a></p></td>
-<td><p>Learn about the requirements and steps involved in deploying voice mail and UM.</p></td>
-</tr>
-<tr class="even">
-<td><p><a href="um-languages-prompts-and-greetings-exchange-2013-help.md">UM languages, prompts, and greetings</a></p></td>
-<td><p>Learn about UM language packs and language settings.</p></td>
-</tr>
-<tr class="odd">
-<td><p><a href="/exchange/voice-mail-unified-messaging/telephone-system-integration-with-um/telephone-system-integration-with-um">Telephone system integration with UM</a></p></td>
-<td><p>Learn about integrating your telephony network with UM.</p></td>
-</tr>
-<tr class="even">
-<td><p><a href="/exchange/voice-mail-unified-messaging/connect-voice-mail-system/connect-voice-mail-system">Connect your voice mail system to your telephone network</a></p></td>
-<td><p>Learn how to use and configure UM components to connect your telephony network to Exchange UM.</p></td>
-</tr>
-<tr class="odd">
-<td><p><a href="/exchange/voice-mail-unified-messaging/automatically-answer-and-route-calls/automatically-answer-and-route-calls">Automatically answer and route incoming calls</a></p></td>
-<td><p>Learn how to create UM auto attendants and manage settings for navigation menus, greetings, and business and non-business hours.</p></td>
-</tr>
-<tr class="even">
-<td><p><a href="/exchange/voice-mail-unified-messaging/set-up-voice-mail/voice-mail-for-users">Set up voice mail for users</a></p></td>
-<td><p>Learn how to create and manage UM mailbox policies and how to enable users for UM.</p></td>
-</tr>
-<tr class="odd">
-<td><p><a href="set-up-client-voice-mail-features-exchange-2013-help.md">Set up client voice mail features</a></p></td>
-<td><p>Learn how to set up client features to enable users to access and manage their voice mail messages.</p></td>
-</tr>
-<tr class="even">
-<td><p><a href="/exchange/voice-mail-unified-messaging/set-outlook-voice-access-pin-security/set-outlook-voice-access-pin-security">Set Outlook Voice Access PIN security</a></p></td>
-<td><p>Learn how to set PIN requirements for Outlook Voice Access users.</p></td>
-</tr>
-<tr class="odd">
-<td><p><a href="protect-voice-mail-exchange-2013-help.md">Protect voice mail</a></p></td>
-<td><p>Learn how to use UM to protect voice messages.</p></td>
-</tr>
-<tr class="even">
-<td><p><a href="/exchange/voice-mail-unified-messaging/run-voice-mail-call-reports/run-voice-mail-call-reports">Run reports for voice mail calls</a></p></td>
-<td><p>Learn about UM call reports.</p></td>
-</tr>
-</tbody>
-</table>
+|Topic|Description|
+|---|---|
+|[New voice mail features](new-voice-mail-features-exchange-2013-help.md)|Learn about new features in Microsoft Exchange 2013.|
+|[Planning for Unified Messaging](planning-for-unified-messaging-exchange-2013-help.md)|Learn about the concepts and information you need to plan a Unified Messaging deployment.|
+|[Deploying voice mail and UM](deploying-voice-mail-and-um-exchange-2013-help.md)|Learn about the requirements and steps involved in deploying voice mail and UM.|
+|[UM languages, prompts, and greetings](um-languages-prompts-and-greetings-exchange-2013-help.md)|Learn about UM language packs and language settings.|
+|[Telephone system integration with UM](telephone-system-integration-with-um-exchange-2013-help.md)|Learn about integrating your telephony network with UM.|
+|[Connect your voice mail system to your telephone network](connect-voice-mail-system-exchange-2013-help.md)|Learn how to use and configure UM components to connect your telephony network to Exchange UM.|
+|[Automatically answer and route incoming calls](automatically-answer-and-route-calls-exchange-2013-help.md)|Learn how to create UM auto attendants and manage settings for navigation menus, greetings, and business and non-business hours.|
+|[Set up voice mail for users](voice-mail-for-users-exchange-2013-help.md)|Learn how to create and manage UM mailbox policies and how to enable users for UM.|
+|[Set up client voice mail features](set-up-client-voice-mail-features-exchange-2013-help.md)|Learn how to set up client features to enable users to access and manage their voice mail messages.|
+|[Set Outlook Voice Access PIN security](set-outlook-voice-access-pin-security-exchange-2013-help.md)|Learn how to set PIN requirements for Outlook Voice Access users.|
+|[Protect voice mail](protect-voice-mail-exchange-2013-help.md)|Learn how to use UM to protect voice messages.|
+|[Run reports for voice mail calls](run-voice-mail-call-reports-exchange-2013-help.md)|Learn about UM call reports.|

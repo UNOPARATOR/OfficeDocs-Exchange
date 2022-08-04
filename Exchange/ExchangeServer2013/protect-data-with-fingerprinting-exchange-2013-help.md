@@ -5,10 +5,12 @@ ms.author: serdars
 author: msdmaguire
 manager: serdars
 ms.reviewer:
+ms.topic: article
 ms.assetid: 110c839b-7693-42f6-aa5d-58ce64f4c357
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
+description: Learn about document fingerprinting in Exchange 2013.
 ---
 
 # Protect form data with document fingerprinting in Exchange 2013
@@ -51,14 +53,14 @@ For more information about adding rules to a DLP policy, see the "Change a DLP p
 DLP uses classification rule packages to detect sensitive content in messages. To create a classification rule package based on a document fingerprint, use the **New-Fingerprint** and **New-DataClassification** cmdlets. Because the results of **New-Fingerprint** aren't stored outside the data classification rule, you always run **New-Fingerprint** and **New-DataClassification** or **Set-DataClassification** in the same PowerShell session. The following example creates a new document fingerprint based on the file C:\My Documents\Contoso Employee Template.docx. You store the new fingerprint as a variable so you can use it with the **New-DataClassification** cmdlet in the same PowerShell session.
 
 ```powershell
-$Employee_Template = Get-Content "C:\My Documents\Contoso Employee Template.docx" -Encoding byte
+$Employee_Template = [System.IO.File]::ReadAllBytes('C:\My Documents\Contoso Employee Template.docx')
 $Employee_Fingerprint = New-Fingerprint -FileData $Employee_Template -Description "Contoso Employee Template"
 ```
 
 Now, let's create a new data classification rule named "Contoso Employee Confidential" that uses the document fingerprint of the file C:\My Documents\Contoso Customer Information Form.docx.
 
 ```powershell
-$Employee_Template = Get-Content "C:\My Documents\Contoso Customer Information Form.docx" -Encoding byte
+$Customer_Form = [System.IO.File]::ReadAllBytes('C:\My Documents\Contoso Customer Information Form.docx')
 $Customer_Fingerprint = New-Fingerprint -FileData $Customer_Form -Description "Contoso Customer Information Form"
 New-DataClassification -Name "Contoso Customer Confidential" -Fingerprints $Customer_Fingerprint -Description "Message contains Contoso customer information."
 ```

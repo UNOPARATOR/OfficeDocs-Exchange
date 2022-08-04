@@ -5,12 +5,14 @@ ms:assetid: 97501135-2149-4590-8373-98e638ac8eb1
 ms:mtpsurl: https://technet.microsoft.com/library/JJ150540(v=EXCHG.150)
 ms:contentKeyID: 47560059
 ms.reviewer: 
+ms.topic: article
 manager: serdars
 ms.author: serdars
 author: msdmaguire
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
+description: Learn about what's new in Exchange 2013.
 ---
 
 # What's new in Exchange 2013
@@ -235,7 +237,7 @@ Exchange 2013 includes the following improvements to auditing:
 
 - **Auditing reports**: The EAC includes auditing functionality so that you can run reports or export entries from the mailbox audit log and the administrator audit log. The mailbox audit log records whenever a mailbox is accessed by someone other than the person who owns the mailbox. This can help you determine who has accessed a mailbox and what they have done. The administrator audit log records any action, based on an Exchange Management Shell cmdlet, performed by an administrator. This can help you troubleshoot configuration issues or identify the cause of problems related to security or compliance. For more information, see [Exchange auditing reports](../ExchangeOnline/security-and-compliance/exchange-auditing-reports/exchange-auditing-reports.md).
 
-- **Viewing the administrator audit log**: Instead of exporting the administrator audit log, which can take up to 24 hours to receive in an email message, you can view administrator audit log entries in the EAC. To do this, go to **Compliance Management** \> **Auditing** and click **View the administrator audit log**. Up to 1000 entries will be displayed on multiple pages. To narrow the search, you can specify a date range. For more information, see [View the administrator audit log](../ExchangeOnline/security-and-compliance/exchange-auditing-reports/view-administrator-audit-log.md).
+- **Viewing the administrator audit log**: Instead of exporting the administrator audit log, which can take up to 24 hours to receive in an email message, you can view administrator audit log entries in the EAC. To do this, go to **Compliance Management** \> **Auditing** and click **View the administrator audit log**. Up to 1000 entries will be displayed on multiple pages. To narrow the search, you can specify a date range. For more information, see [View the administrator audit log](../ExchangeOnline/security-and-compliance/exchange-auditing-reports/view-administrator-audit-log.md).
 
 ## Anti-malware protection
 

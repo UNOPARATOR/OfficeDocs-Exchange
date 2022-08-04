@@ -5,6 +5,8 @@ ms:assetid: 10fb7d62-4d78-40a3-82db-d62bcd27ba42
 ms:mtpsurl: https://technet.microsoft.com/library/Aa996309(v=EXCHG.150)
 ms:contentKeyID: 49289173
 ms.reviewer: 
+ms.topic: article
+description: Create remote domain entries to define settings for message transfer between your Microsoft Exchange Server organization and domains outside your organization
 manager: serdars
 ms.author: serdars
 author: msdmaguire
@@ -39,39 +41,14 @@ In Exchange 2013, users can specify different automatic replies for internal and
 In Exchange 2013, there are two types of automatic replies:
 
 - **External**: Supported by Exchange 2013 and Exchange 2010. Can only be set by Outlook 2010 or Office Outlook 2007, or using Outlook Web App.
-
 - **Internal**: Supported by Exchange 2013 and Exchange 2010. Can only be set by Outlook 2010 or Outlook 2007, or using Outlook Web App.
 
 The following table describes various client and server combinations and the types of automatic replies that can be used in each scenario.
 
-**Client and server support for automatic replies**
-
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Client version</th>
-<th>Exchange version</th>
-<th>Automatic replies supported</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Outlook 2010 or Outlook 2007</p></td>
-<td><p>Exchange 2013 Exchange 2010 Exchange 2007</p></td>
-<td><p>Internal, External</p></td>
-</tr>
-<tr class="even">
-<td><p>Outlook Web App</p></td>
-<td><p>Exchange 2013 Exchange 2010 Exchange 2007</p></td>
-<td><p>Internal, External</p></td>
-</tr>
-</tbody>
-</table>
+|Client version|Exchange version|Automatic replies supported|
+|---|---|---|
+|Outlook 2010 or Outlook 2007|Exchange 2013 Exchange 2010 Exchange 2007|Internal, External|
+|Outlook Web App|Exchange 2013 Exchange 2010 Exchange 2007|Internal, External|
 
 ## Controlling NDR information
 
@@ -79,6 +56,6 @@ As mentioned at the beginning of this topic, you can prevent NDRs from being sen
 
 Exchange 2013 provides you with granular control over the contents of an NDR destined for a remote domain. With Exchange 2013, you can allow NDRs to a remote domain, while stripping any diagnostic information. This way, you can still prevent information about your Exchange deployment from leaving your organization while at the same time providing NDR notifications to external senders.
 
-This feature is controlled with the *NDRDiagnosticInfoEnabled* parameter on the **Set-RemoteDomain** cmdlet. Because this setting is configurable for each remote domain, you can have different settings based on your needs. For example, you can choose to remove the NDR diagnostic information for the default remote domain, but allow full NDR diagnostic information for the remote domains that represent your partners.
+This feature is controlled with the _NDRDiagnosticInfoEnabled_ parameter on the **Set-RemoteDomain** cmdlet. Because this setting is configurable for each remote domain, you can have different settings based on your needs. For example, you can choose to remove the NDR diagnostic information for the default remote domain, but allow full NDR diagnostic information for the remote domains that represent your partners.
 
 For more information about this new setting, see [Set-RemoteDomain](/powershell/module/exchange/Set-RemoteDomain).

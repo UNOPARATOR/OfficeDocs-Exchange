@@ -40,11 +40,11 @@ You can then use the **MoveRequest** cmdlets to move the mailbox.
 
 ## OAB version 4 and Outlook clients
 
-Exchange 2013 only supports OAB version 4. OAB version 4 was introduced in Exchange 2003 Service Pack 2 (SP2) and is supported by Outlook 2007, Outlook 2010, and Outlook 2013. This Unicode OAB allows client computers to receive differential updates rather than full OAB downloads and a reduced file size.
+Exchange 2013 only supports OAB version 4. OAB version 4 was introduced in Exchange 2003 Service Pack 2 (SP2) and is supported by Outlook 2007, Outlook 2010, and Outlook 2013. This Unicode OAB allows client computers to receive differential updates rather than full OAB downloads and a reduced file size.
 
 ## Outlook clients that use OAB version 4
 
-For Outlook 2013, Outlook 2010, Outlook 2007, and clients that use OAB version 4, if the size of the changes.oab files is half the size (or more) of the entire OAB files, Outlook initiates a full OAB download.
+For Outlook 2013, Outlook 2010, Outlook 2007, and clients that use OAB version 4, if the size of the changes.oab files is half the size (or more) of the entire OAB files, Outlook initiates a full OAB download.
 
 ## Web-based distribution
 
@@ -66,7 +66,7 @@ To function properly, Web-based distribution depends on the following components
 
 - **OAB distribution**: If a client initiates the OAB distribution request, the request be directed through a Client Access server. The Client Access server then routes the request to the Mailbox server that's hosting the OAB files. The OAB files are then distributed directly from the Mailbox server to the client.
 
-- **OAB virtual directory**: The OAB virtual directory is the distribution point used by the Web-based distribution method. By default, when Exchange is installed, a new virtual directory named **OAB** is created in the default internal website in Internet Information Services (IIS). If you have client-side users that connect to Outlook from outside your organization's firewall, you can add an external website. Alternatively, when you run the **New-OABVirtualDirectory** cmdlet in the Shell, a new virtual directory named OAB is created in the default IIS website on the local Exchange Client Access server. For information, see [Create an offline address book virtual directory](/exchange/address-books/offline-address-books/create-virtual-directory).
+- **OAB virtual directory**: The OAB virtual directory is the distribution point used by the Web-based distribution method. By default, when Exchange is installed, a new virtual directory named **OAB** is created in the default internal website in Internet Information Services (IIS). If you have client-side users that connect to Outlook from outside your organization's firewall, you can add an external website. Alternatively, when you run the **New-OABVirtualDirectory** cmdlet in the Shell, a new virtual directory named OAB is created in the default IIS website on the local Exchange Client Access server. For information, see [Create an offline address book virtual directory](create-virtual-directory-exchange-2013-help.md).
 
 - **Autodiscover service**: This is a feature available in Outlook 2013, Outlook 2010, Outlook 2007, and in some mobile devices that automatically configure the clients for access to Exchange. The service runs on a Client Access server and returns the correct OAB URL for a specific client connection.
 
@@ -90,7 +90,7 @@ For some organizations, the OAB is a small file that remote users occasionally d
 
 OAB sizes can vary from a few megabytes to a few hundred megabytes. The following factors can affect the size of the OAB:
 
-- Usage of certificates in a company. The more public key infrastructure (PKI) certificates, the larger the OAB. PKI certificates range from 1 kilobyte (KB) to 3 KB. They're the single largest contributor to the OAB size.
+- Usage of certificates in a company. The more public key infrastructure (PKI) certificates, the larger the OAB. PKI certificates range from 1 kilobyte (KB) to 3 KB. They're the single largest contributor to the OAB size.
 
 - Number of mail recipients in Active Directory.
 

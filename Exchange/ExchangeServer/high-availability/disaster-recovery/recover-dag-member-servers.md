@@ -2,8 +2,8 @@
 ms.localizationpriority: medium
 description: 'Summary: How to recover an Exchange DAG member after a failure in Exchange Server 2016 and Exchange Server 2019.'
 ms.topic: article
-author: msdmaguire
-ms.author: serdars
+author: JoanneHendrickson
+ms.author: jhendr
 ms.assetid: eccd8f61-9706-4bb7-a62a-ec7c166f8019
 ms.reviewer:
 title: Recover a database availability group member server, recover Exchange DAG member, Exchange DAG server recovery, DAG server recovery, Exchange DAG failover
@@ -93,6 +93,11 @@ Looking for other management tasks related to DAGs? Check out [Manage database a
    Add-MailboxDatabaseCopy -Identity DB2 -MailboxServer MBX1 -ReplayLagTime 3.00:00:00
    Add-MailboxDatabaseCopy -Identity DB3 -MailboxServer MBX1 -ReplayLagTime 3.00:00:00 -TruncationLagTime 3.00:00:00
    ```
+
+> [!NOTE]
+> You will need to reconfigure the Virtual Directories on the recovered server and re-create any customizations you might have made. You might also need to perform additional recovery steps depending on your configuration. See [Deploy the ASA credential to another Exchange server running Client Access services](/exchange/architecture/client-access/kerberos-auth-for-load-balanced-client-access?view=exchserver-2019#deploy-the-asa-credential-to-another-exchange-server-running-client-access-services).
+>
+> You need to import the AD FS signing certificate. See [Step 1: Review the certificate requirements for AD FS](/exchange/clients/outlook-on-the-web/ad-fs-claims-based-auth?view=exchserver-2019#step-1-review-the-certificate-requirements-for-ad-fs).
 
 ## How do you know this fix worked?
 
