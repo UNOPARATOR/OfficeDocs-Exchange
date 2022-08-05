@@ -12,6 +12,7 @@ author: msdmaguire
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
+description: Admins can learn about built-in role groups in Exchange 2013.
 ---
 
 # Built-in role groups
@@ -24,27 +25,16 @@ Microsoft Exchange Server 2013 includes several management role groups by defaul
 > Role groups don't control access to end-user mailbox features. To control access to end-user mailbox features, see [Understanding management role assignment policies](understanding-management-role-assignment-policies-exchange-2013-help.md).
 
 - [Organization Management](organization-management-exchange-2013-help.md)
-
 - [View-only Organization Management](view-only-organization-management-exchange-2013-help.md)
-
 - [Recipient Management](recipient-management-exchange-2013-help.md)
-
 - [UM Management](um-management-exchange-2013-help.md)
-
 - [Help Desk](help-desk-exchange-2013-help.md)
-
 - [Hygiene Management](hygiene-management-exchange-2013-help.md)
-
 - [Compliance Management](compliance-management-exchange-2013-help.md)
-
 - [Records Management](records-management-exchange-2013-help.md)
-
 - [Discovery Management](discovery-management-exchange-2013-help.md)
-
 - [Public Folder Management](public-folder-management-exchange-2013-help.md)
-
 - [Server Management](server-management-exchange-2013-help.md)
-
 - [Delegated Setup](delegated-setup-exchange-2013-help.md)
 
 For more information about role groups, see [Understanding management role groups](understanding-management-role-groups-exchange-2013-help.md).

@@ -12,6 +12,7 @@ author: msdmaguire
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
+description: Admins can learn about anti-spam protection in Exchange 2013.
 ---
 
 # Anti-spam protection
