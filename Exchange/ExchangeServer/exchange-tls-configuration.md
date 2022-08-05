@@ -270,15 +270,14 @@ To disable **TLS 1.1** for both Server (inbound) and Client (outbound) connectio
 
 > [!IMPORTANT]
 > The steps described in this section are optional to the steps described before. It's required to configure TLS 1.2 and fully disable TLS 1.0 and 1.1 before following the next steps.
+>
+> Consider applying these settings separate to disabling TLS 1.0 & TLS 1.1 to isolate configuration issues with problematic clients.
 
 ### Configure client and server TLS renegotiation strict mode
 
 These settings are used to configure TLS renegotiation strict mode. This means that the server allows only those clients to which this [security update](https://support.microsoft.com/topic/ms10-049-vulnerabilities-in-schannel-could-allow-remote-code-execution-d4258037-ad3a-c00c-250f-6c67a408bd7c) is applied to set up and renegotiate TLS sessions. The server does not allow the clients to which this [security update](https://support.microsoft.com/topic/ms10-049-vulnerabilities-in-schannel-could-allow-remote-code-execution-d4258037-ad3a-c00c-250f-6c67a408bd7c) is not applied to set up the TLS session. In this case, the server terminates such requests from the clients.
 
 Similarly, if this [security update](https://support.microsoft.com/topic/ms10-049-vulnerabilities-in-schannel-could-allow-remote-code-execution-d4258037-ad3a-c00c-250f-6c67a408bd7c) is applied to the client, and the client is in strict mode, the client can set up and renegotiate TLS sessions with all the servers for which this security update is applied. The clients cannot set up TLS sessions at all with servers for which this security update is not applied. The client cannot move ahead with a TLS negotiation attempt with such servers.
-
-> [!NOTE]
-> Consider applying these settings separate to disabling TLS 1.0 & TLS 1.1 to isolate configuration issues with problematic clients.
 
 1. From Notepad.exe, create a text file named **ConfigureRenegotiation.reg**
 2. Copy and paste the following text into the file
