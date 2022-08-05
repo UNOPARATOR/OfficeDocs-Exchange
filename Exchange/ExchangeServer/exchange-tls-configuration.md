@@ -1,6 +1,17 @@
-﻿# Exchange Server 2013 & 2016 TLS configuration best practices
+﻿---
+ms.localizationpriority: medium
+ms.topic: article
+author: lusassl-msft
+ms.author: lusassl
+title: Exchange Server TLS configuration best practices
+description:  "Learn about Exchange Server TLS configuration best practices."
+ms.prod: exchange-server-it-pro
+manager: serdars
+---
 
-This documentation describes the required steps to properly configure TLS 1.2 on Exchange Server 2013 and Exchange Server 2016. It also describes how to optimize the cipher suites and hashing algorithms used by TLS 1.2 (**Exchange Server 2016 only**). Furthermore it describes how to properly configure TLS 1.0 and 1.1 or in case you want to turn them off, how to disable TLS 1.0 and 1.1 correctly. Please read carefully as some of the steps described here can only be performed on specific operating systems (like Windows Server 2016) or specific Exchange Server versions.
+# Exchange Server TLS configuration best practices
+
+This documentation describes the required steps to properly configure TLS 1.2 on Exchange Server 2013, Exchange Server 2016 and Exchange Server 2019. It also describes how to optimize the cipher suites and hashing algorithms used by TLS 1.2 (**Exchange Server 2016 only**). Furthermore, it describes how to properly configure TLS 1.0 and 1.1 whether you want it disabled and configured correctly within .NET Framework. Please read carefully as some of the steps described here can only be performed on specific operating systems (like Windows Server 2016) or specific Exchange Server versions.
 
 > [!NOTE]
 > The [Microsoft TLS 1.0 implementation](https://support.microsoft.com/topic/schannel-implementation-of-tls-1-0-in-windows-security-status-update-november-24-2015-69b482ff-072d-f8a8-1ba3-e921019a4d5f) has no known security vulnerabilities. But because of the potential for future protocol downgrade attacks and other TLS vulnerabilities, it is recommended to carefully plan and disable TLS 1.0 and 1.1. Failure to plan carefully may cause clients to lose connectivity.
@@ -10,7 +21,7 @@ This documentation describes the required steps to properly configure TLS 1.2 on
 
 ## Prerequisites
 
-TLS 1.2 support was added with Cumulative Update (CU) 19 to Exchange Server 2013 and CU 8 to Exchange Server 2016. It is possible to disable TLS 1.0 and 1.1 on Exchange Server 2013 with CU 20 and later or on Exchange Server 2016 with CU 9 and later. It is also required to have the latest version of .NET framework and associated patches [supported by your CU](/exchange/plan-and-deploy/supportability-matrix?view=exchserver-2016#exchange-2016&preserve-view=true) in place.
+TLS 1.2 support was added with Cumulative Update (CU) 19 to Exchange Server 2013 and CU 8 to Exchange Server 2016. Exchange Server 2019 supports TLS 1.2 out of the box. It is possible to disable TLS 1.0 and 1.1 on Exchange Server 2013 with CU 20 and later or on Exchange Server 2016 with CU 9 and later. It is also required to have the latest version of .NET Framework and associated patches [supported by your CU](/exchange/plan-and-deploy/supportability-matrix?view=exchserver-2016#exchange-2016&preserve-view=true) in place.
 
 Exchange Server cannot run without Windows Server therefore it is important to have the latest operating system updates installed to run a stable and secure TLS 1.2 implementation.
 
@@ -53,6 +64,9 @@ Based on your operating system, please make sure that the following updates are 
 
 The ``SystemDefaultTlsVersions`` registry value defines which security protocol version defaults will be used by .NET Framework 4.x. If the value is set to 1, then .NET Framework 4.x will inherit its defaults from the Windows Schannel ``DisabledByDefault`` registry values. If the value is undefined, it will behave as if the value is set to 0. The strong cryptography (configured by the ``SchUseStrongCrypto`` registry value) uses more secure network protocols (TLS 1.2, TLS 1.1, and TLS 1.0) and blocks protocols that are not secure. ``SchUseStrongCrypto`` affects only client (outgoing) connections in your application. By configuring .NET Framework 4.x to inherit its values from Schannel we gain the ability to use the latest versions of TLS supported by the OS, including TLS 1.2.
 
+> [!NOTE]
+> [Exchange Server 2019 comes with a TLS 1.2 only default configuration](/exchange/new-features/new-features?view=exchserver-2019#security&preserve-view=true). Most of the steps described in this article are already configured. However, `SchUseStrongCrypto` is currently not configured by default and should therefore be configured manually as described below. Microsoft is investigating the possibility of adding this configuration in a future Exchange Server 2019 update.
+
 1. From Notepad.exe, create a text file named **NET4X-UseSchannelDefaults.reg**
 2. Copy and paste the following text into the file
     ```notepad
@@ -91,7 +105,7 @@ Exchange Server 2013 and later do not need this anymore. However, we recommend t
 
 ## Validating TLS 1.2 is in use
 
-Once TLS 1.2 has been enabled it may be helpful to validate your work was successful and the system is able to negotiate TLS 1.2 for inbound (server) connections and outbound (client) connections. There are a few methods available for validating this.
+Once TLS 1.2 has been enabled it may be helpful to validate your work was successful and the system is able to negotiate TLS 1.2 for inbound (server) connections and outbound (client) connections. There are a few methods available for validating this, some of them are discussed in the sections below.
 
 Many protocols used in Exchange Server are HTTP based, and therefore traverse the IIS processes on the Exchange server. MAPI/HTTP, Outlook Anywhere, Exchange Web Services, Exchange ActiveSync, REST, OWA & EAC, Offline Address Book downloads, and AutoDiscover are examples of HTTP based protocols used by Exchange Server.
 
@@ -101,7 +115,7 @@ The IIS team has added capabilities to Windows Server 2016 and Windows Server 20
 
 These IIS custom fields do not exist for Windows Server 2012. Your load balancer or firewall logs may be able to provide this information. Please request guidance from your vendors to determine if their logs may provide this information.
 
-### Message Headers (Exchange Server 2016 only)
+### Message Headers (Exchange Server 2016 or later)
 
 Message header data in Exchange Server 2016 provides the protocol negotiated and used when the sending and receiving host exchanged a piece of mail. You can use the [Message Header Analyzer](https://aka.ms/mha) to get a clear overview of each hop.
 
@@ -256,6 +270,8 @@ To disable **TLS 1.1** for both Server (inbound) and Client (outbound) connectio
 
 > [!IMPORTANT]
 > The steps described in this section are optional to the steps described before. It's required to configure TLS 1.2 and fully disable TLS 1.0 and 1.1 before following the next steps.
+>
+> Consider applying these settings separate to disabling TLS 1.0 & TLS 1.1 to isolate configuration issues with problematic clients.
 
 ### Configure client and server TLS renegotiation strict mode
 
