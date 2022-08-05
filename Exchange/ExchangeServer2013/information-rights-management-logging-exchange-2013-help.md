@@ -29,14 +29,11 @@ Looking for management tasks related to IRM? See [Information Rights Management 
 
 By default, IRM logs are located in C:\\Program Files\\Microsoft\\Exchange Server\\V14\\Logging\\IRMLogs.
 
-The naming convention for IRM log files is \<*Process*\>\_\<*Process identifier_ or _IIS AppPool identifier*\>\_IRMLOG*yyyymmdd*-*nnnn_.log, where:
+The naming convention for IRM log files is \<_Process_\>\_\<_Process identifier_ or _IIS AppPool identifier_\>\_IRMLOG_yyyymmdd_-_nnnn_.log, where:
 
-- \<*Process*\> = process that creates the log file. For example, on Transport service, this will be EdgeTransport.
-
+- \<_Process_\> = process that creates the log file. For example, on Transport service, this will be EdgeTransport.
 - \<*Process identifier_ or _IIS AppPool identifier\>_ = numerical ID of the process.
-
 - _yyyymmdd_ = Coordinated Universal Time (UTC) date when the log file was created.
-
 - _nnnn_ = instance number, which starts at 1 for each day.
 
 An example IRM log file name is EdgeTransport\_1056\_IRMLOG20101201-1.log.
@@ -68,7 +65,7 @@ IRM log files are text files that contain data in comma-separated value (CSV) fo
 
 - **\#Date**: The UTC date and time when the log file was created. The UTC date and time is represented in the ISO 8601 date-time format: _yyyy_-_mm_-_dd_T_hh_:_mm_:_ss.fff_Z, where:
 
-  - yyyy = year
+  - _yyyy_ = year
   - _mm_ = month
   - _dd_ = day
   - T = time designator used to show the start of the time component
@@ -86,7 +83,7 @@ IRM log files are text files that contain data in comma-separated value (CSV) fo
     |---|---|
     |**Date-time**|Lists the UTC timestamp.|
     |**Feature**|Lists the RMS client feature used. Valid values include: <ul><li>`RacClc`</li><li>`Template`</li><li>`Prelicense`</li><li>`UseLicense`</li><li>`Signature verification`</li><li>`ServerInfo`</li></ul>|
-    |**Event-Type**|Lists the event type. Valid values include: <ul><li>`Acquire`: An RMS license or template is requested.</li><li>`Success`: An RMS license or template is acquired successfully.</li><li>`Exception`: An error has occurred.</li><li>`Queued`   A request is pending.</li></ul>|
+    |**Event-Type**|Lists the event type. Valid values include: <ul><li>`Acquire`: An RMS license or template is requested.</li><li>`Success`: An RMS license or template is acquired successfully.</li><li>`Exception`: An error has occurred.</li><li>`Queued`: A request is pending.</li></ul>|
     |**Tenant-Id**|Reserved for internal Microsoft use.|
     |**Server-url**|Lists the RMS server URL accessed during the operation.|
     |**Context**|Used by the calling process to tie multiple RMS transactions together. Valid values include: <ul><li>`MessageID: \<Actual message ID>`</li><li>`MailboxGuid: \<Mailbox GUID>`</li><li>`AttachmentFileName: \<File name>`</li></ul>|
