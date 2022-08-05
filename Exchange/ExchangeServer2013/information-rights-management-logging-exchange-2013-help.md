@@ -13,7 +13,6 @@ description: Information Rights Management logging in Exchange Server
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
-description: Admins can learn about information rights management logging in Exchange 2013.
 ---
 
 # Information Rights Management logging
@@ -84,7 +83,7 @@ IRM log files are text files that contain data in comma-separated value (CSV) fo
     |---|---|
     |**Date-time**|Lists the UTC timestamp.|
     |**Feature**|Lists the RMS client feature used. Valid values include: <ul><li>`RacClc`</li><li>`Template`</li><li>`Prelicense`</li><li>`UseLicense`</li><li>`Signature verification`</li><li>`ServerInfo`</li></ul>|
-    |**Event-Type**|Lists the event type. Valid values include: <ul><li>`Acquire`: An RMS license or template is requested.</li><li>`Success`: An RMS license or template is acquired successfully.</li><li>`Exception`: An error has occurred.</li><li>`Queued: A request is pending.</li></ul>|
+    |**Event-Type**|Lists the event type. Valid values include: <ul><li>`Acquire`: An RMS license or template is requested.</li><li>`Success`: An RMS license or template is acquired successfully.</li><li>`Exception`: An error has occurred.</li><li>`Queued`: A request is pending.</li></ul>|
     |**Tenant-Id**|Reserved for internal Microsoft use.|
     |**Server-url**|Lists the RMS server URL accessed during the operation.|
     |**Context**|Used by the calling process to tie multiple RMS transactions together. Valid values include: <ul><li>`MessageID: \<Actual message ID>`</li><li>`MailboxGuid: \<Mailbox GUID>`</li><li>`AttachmentFileName: \<File name>`</li></ul>|
