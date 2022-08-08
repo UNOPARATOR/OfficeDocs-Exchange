@@ -12,6 +12,7 @@ author: msdmaguire
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
+description: Admins can learn how to change role entries on unscoped top-level roles in Exchange Server.
 ---
 
 # Change a role entry on an unscoped top-level role

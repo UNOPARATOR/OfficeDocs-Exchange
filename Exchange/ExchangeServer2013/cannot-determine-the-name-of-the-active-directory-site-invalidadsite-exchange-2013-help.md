@@ -12,6 +12,7 @@ author: msdmaguire
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
+description: Learn about the Cannot determine the name of the Active Directory site error in Exchange server.
 ---
 
 # Cannot determine the name of the Active Directory site\_InvalidADSite

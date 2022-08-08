@@ -12,6 +12,7 @@ author: msdmaguire
 f1.keywords:
 - NOCSH
 mtps_version: v=EXCHG.150
+description: Admins can learn how to change role assignments in Exchange Server.
 ---
 
 # Change a role assignment
@@ -23,7 +24,6 @@ Management role assignments assign a management role to a role assignee. By chan
 For more information about management role scopes and assignments in Microsoft Exchange Server 2013, see the following topics:
 
 - [Understanding management role assignments](understanding-management-role-assignments-exchange-2013-help.md)
-
 - [Understanding management role scopes](understanding-management-role-scopes-exchange-2013-help.md)
 
 Looking for other management tasks related to role assignments? Check out [Advanced permissions](advanced-permissions-exchange-2013-help.md).
