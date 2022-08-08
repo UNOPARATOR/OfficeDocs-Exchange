@@ -30,4 +30,4 @@ To resolve this issue, verify that the local server is a member of a valid Activ
 
 You can use the **/DsGetSite** option of the Nltest.exe command line tool to verify and display site membership. For more information, see "Nltest.exe: NLTest Overview" in the "Tools and Settings Collection" of [Windows Server 2003 Technical Reference](/previous-versions/windows/it-pro/windows-server-2003/cc758478(v=ws.10)).
 
-For more information about Active Directory troubleshooting, see [Troubleshooting Active Directory Operations" in *Windows Server 2003: Operations*](/previous-versions/windows/it-pro/windows-server-2003/cc758587(v=ws.10)).
+For more information about Active Directory troubleshooting, see [Troubleshooting Active Directory Operations" in _Windows Server 2003: Operations_](/previous-versions/windows/it-pro/windows-server-2003/cc758587(v=ws.10)).
