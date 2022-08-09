@@ -17,7 +17,7 @@ description: You use plus addressing to support dynamic, disposable recipient (n
 # Plus Addressing in Exchange Online
 
 > [!NOTE]
-> Starting in late April 2022, plus addressing will be turned on by default in all organzations, so the AllowPlusAddressInRecipients parameter will no longer work. After that happens, you can disable plus addressing by using the new DisablePlusAddressInRecipients as described later in this article.
+> Starting in late April 2022, plus addressing will be turned on by default in all organizations, so the AllowPlusAddressInRecipients parameter will no longer work. After that happens, you can disable plus addressing by using the new DisablePlusAddressInRecipients as described later in this article.
 
 As of September 2020, plus addressing (also known as _subaddressing_) is available in Exchange Online. Subaddressing is an industry-defined way to support dynamic, disposable recipient (not sender) email addresses for mailboxes.
 
